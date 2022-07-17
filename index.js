@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
 // TODO: Create an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
@@ -49,25 +50,66 @@ const promptUser = () => {
           },  
         {
             type: 'input',
-            name: 'Question',
+            name: 'questions.git',
             message: 'What is your Github Username?',
             validate: (value)=>{ if (value){return true}else {return 'You need a value to continue'}},
           },
         {
             type: 'input',
-            name: 'Question',
+            name: 'questions.email',
             message: 'What is your Email?',
             validate: (value)=>{ if (value){return true}else {return 'You need a value to continue'}},
           },
          
     ])
-};
+  }
+   
+  const getDone = ({title,description,installation,usage,license,contributions,test,questions})=>
+      `# ${title}
+      # Description
+        ${description}
+      # Table of Contents
+      * [Installation](#installation)
+      * [Usage](#usage)
+      * [License](#license)
+      * [Contribution](#contribution)
+      * [Test](#test)
+      * [Questions](#questions)
+      # Installation
+        ${installation}
+      # Usage
+        ${usage}
+      # License
+        ${license}
+      # Contribution
+        ${contributions}
+      # Test
+        ${test}
+      # Questions
+        ${questions.git}
+      # Questions 
+        ${questions.email}  `    
+        
 
+
+
+      
+    
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//  function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+ const init = () => {
+   promptUser()
+   .then((data) =>{
+    const filename = getDone(data)
+    
+    fs.writeFile('README.md',getDone(data), (err) =>
+    err ? console.log(err) : console.log('Success!')
+    );
+    
+  });
+ }
 
 // Function call to initialize app
-init();
+ init();
