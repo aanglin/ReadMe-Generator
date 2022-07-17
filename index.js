@@ -85,7 +85,7 @@ const promptUser = () => {
         ${contributions}
 # Test
         ${test}
-# Questions
+# Questions 
         ${questions.git}
 # Questions 
         ${questions.email}  `    
