@@ -65,30 +65,53 @@ const promptUser = () => {
   }
    
   const getDone = ({title,description,installation,usage,license,contributions,test,questions})=>
-      `# ${title}
-      # Description
+`# ${title}
+# Description
         ${description}
-      # Table of Contents
+# Table of Contents
       * [Installation](#installation)
       * [Usage](#usage)
       * [License](#license)
       * [Contribution](#contribution)
       * [Test](#test)
       * [Questions](#questions)
-      # Installation
+# Installation
         ${installation}
-      # Usage
+# Usage
         ${usage}
-      # License
+# License
         ${license}
-      # Contribution
+# Contribution
         ${contributions}
-      # Test
+# Test
         ${test}
-      # Questions
+# Questions
         ${questions.git}
-      # Questions 
+# Questions 
         ${questions.email}  `    
+        
+        function renderLicenseBadge(license) {
+          let licenseType = license.license; 
+          let yourLicense = ''
+          if(licenseType === 'MIT') {
+            yourLicense = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]`
+          } else if (licenseType === 'Boost Software License') {
+            yourLicense = `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]`
+          } else if (licenseType === 'Apache License 2.0') {
+            yourLicense = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]`
+          } else {
+            license.license = "N/A"
+          }
+          return yourLicense;
+        };
+         generateMarkdown(data) 
+           `# ${data.title}
+          ${renderLicenseBadge(license)`#license`}
+        `;
+        
+        
+        // module.exports = generateMarkdown;
+        
         
 
 
