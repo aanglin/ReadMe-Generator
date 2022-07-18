@@ -33,7 +33,7 @@ const promptUser = () => {
             type: 'list',
             name: 'license',
             message: 'What license did you use?',
-            choices:['MIT License','Boost Software License','Apache License 2.0','N/A'],
+            choices:['MIT License','GPL v3.0','Apache License 2.0','N/A'],
             validate: (value)=>{ if (value){return true}else {return 'You need a value to continue'}},
           },
         {
