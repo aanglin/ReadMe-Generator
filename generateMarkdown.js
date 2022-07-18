@@ -38,7 +38,7 @@ function renderLicenseSection(license) {
       if(license === 'None'){
           licenseSection = ''
       }else {
-          licenseSection = `liscense: ${license}`
+          licenseSection = `liscense:`
       }
       console.log(licenseSection)
       return licenseSection;
@@ -47,12 +47,12 @@ function renderLicenseSection(license) {
 function generateMarkdown({title,description,installation,usage,license,contributions,test,questions}) {
   return `
 #   ${title}
-##  ${renderLicenseSection(license)} ${renderLicenseBadge(license)}
+##  ${renderLicenseSection(license)} 
 ##  ${renderLicenseLink(license)}
 #   Description
 
       ${description}
-      
+
 #   Table of Contents
 *   [Installation](#installation)
 *   [Usage](#usage)
@@ -66,7 +66,7 @@ function generateMarkdown({title,description,installation,usage,license,contribu
       ${usage}
 #   License
      This project is licensed under the ${license} license
-     ![Github license](${license})    
+       
 #   Contribution
       ${contributions}
 #    Test
