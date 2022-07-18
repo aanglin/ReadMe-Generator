@@ -2,24 +2,24 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let licenseType = ''; 
-          if(licenseType === 'MIT') {
-           licenseType = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
+          if(licenseType === 'MIT license') {
+           licenseType = `![Github license](https://img.shields.io/badge/license-MIT-blue.svg)`
           } else if (licenseType === 'GPL v3.0') {
            licenseType = '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
           } else if (license === 'Apache License 2.0') {
            licenseType = '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
           } else {
             licenseType = ''
-          }
-          return licenseType
         }
-                
+        console.log(licenseType)     
+        return licenseType
+        }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   let licenseLinks = '';
-  if(license === 'MIT'){
+  if(license === 'MIT license'){
       'https://choosealicense.com/licenses/mit/' 
 } else if(license === 'Boost Software License'){            
       'https://www.gnu.org/licenses'
@@ -28,9 +28,9 @@ function renderLicenseLink(license) {
 }else{ 
   licenseLinks = ''
 }
+console.log(licenseLinks)
 return licenseLinks;
 }
-
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
@@ -40,30 +40,31 @@ function renderLicenseSection(license) {
     }else {
         licenseSection = `liscense: ${license}`
     }
+    console.log(licenseSection)
     return licenseSection;
 }
-
 // TODO: Create a function to generate markdown for README
 function generateMarkdown({title,description,installation,usage,license,contributions,test,questions}) {
-  return `# ${title}
+  return `
+#   ${title}
 ##  ${renderLicenseSection(license)} ${renderLicenseBadge(license)}
 ##  ${renderLicenseLink(license)}
 #   Description
       ${description}
 #   Table of Contents
-      * [Installation](#installation)
-      * [Usage](#usage)
-      * [License](#license)
-      * [Contribution](#contribution)
-      * [Test](#test)
-      * [Questions](#questions)
+*   [Installation](#installation)
+*   [Usage](#usage)
+*   [license](#license)
+*   [Contribution](#contribution)
+*   [Test](#test)
+*   [Questions](#questions)
 #   Installation
       ${installation}
 #  Usage
       ${usage}
 #   License
      This project is licensed under the ${license} license
-     ![Github License](${license})    
+     ![Github license](${license})    
 #   Contribution
       ${contributions}
 #    Test
