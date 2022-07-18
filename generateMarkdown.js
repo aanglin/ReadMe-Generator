@@ -1,38 +1,53 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-// function renderLicenseBadge(license) {
-//   let licenseType = license.license; 
-//           let yourLicense = ''
-//           if(licenseType === 'MIT') {
-//            return yourLicense = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]`
-//           } else if (licenseType === 'Boost Software License') {
-//            return yourLicense = `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)]`
-//           } else if (licenseType === 'Apache License 2.0') {
-//            return yourLicense = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]`
-//           } else {
-//             return license.license = "N/A"
-//           }
-//         }
-//         renderLicenseBadge();        
+function renderLicenseBadge(license) {
+  let licenseType = ''; 
+          if(licenseType === 'MIT') {
+           licenseType = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
+          } else if (licenseType === 'Boost Software License') {
+           licenseType = '![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)'
+          } else if (license === 'Apache License 2.0') {
+           licenseType = '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
+          } else {
+            licenseType = ''
+          }
+          return licenseType
+        }
+                
 
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {
-//   const licenseLinks = {
-//     mit:  '[MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',             
-//   boost:  '[Boost](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)',
-//     apache: '[Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)'
-//   }
-//  return licenseLinks[license]
-// }
-// renderLicenseLink(license);
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {
+  let licenseLinks = '';
+  if(license === 'MIT'){
+      'https://img.shields.io/badge/License-MIT-yellow.svg' 
+} else if(license === 'Boost Software License'){            
+      'https://img.shields.io/badge/License-Boost_1.0-lightblue.svg'
+}  else if(license === 'Apache License 2.0'){ 
+      'https://img.shields.io/badge/License-Apache_2.0-blue.svg'
+}else{ 
+  licenseLinks = ''
+}
+return licenseLinks;
+}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {
+    let licenseSection = ''
+    if(license === 'None'){
+        licenseSection = ''
+    }else {
+        licenseSection = `liscense: ${license}`
+    }
+    return licenseSection;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown({title,description,installation,usage,license,contributions,test,questions}) {
   return `# ${title}
+  ## ${renderLicenseSection(license)} ${renderLicenseBadge(license)}
+  ## ${renderLicenseLink(license)}
   # Description
       ${description}
   # Table of Contents
