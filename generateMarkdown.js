@@ -50,9 +50,7 @@ function generateMarkdown({title,description,installation,usage,license,contribu
 ##  ${renderLicenseSection(license)} 
 ##  ${renderLicenseLink(license)}
 #   Description
-
-      ${description}
-
+    <p>${description}</p>
 #   Table of Contents
 *   [Installation](#installation)
 *   [Usage](#usage)
@@ -61,18 +59,18 @@ function generateMarkdown({title,description,installation,usage,license,contribu
 *   [Test](#test)
 *   [Questions](#questions)
 #   Installation
-      ${installation}
+      <p>${installation}</p>
 #  Usage
-      ${usage}
+      <p>${usage}</p>
 #   License
-     This project is licensed under the ${license} license
+     <p>This project is licensed under the ${license} license</p>
        
 #   Contribution
-      ${contributions}
+      <p>${contributions}</p>
 #    Test
-     You will need the following to run the test: ${test}
+     <p>You will need the following to run the test: ${test}</p>
 #   Questions
-     If you have any questions about the repo or to open an issue, you can contact me at: 
+     <p>If you have any questions about the repo or to open an issue, you can contact me at:</p> 
 ###  Github: [${questions.git.trim().toLowerCase()}](https://github.com) 
 ###  Email:  [${questions.email.trim().toLowerCase()}](${questions.email})  
 
