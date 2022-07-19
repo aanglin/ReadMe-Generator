@@ -5,13 +5,14 @@
 #   Description
 <p>When completing projects, you want a faster way of completing a readme.  This  generator will take the answers to the questions that are ask and generate a readme for the program you are creating.</p>
 
-#   Table of Contents
-<li>   [Installation](#installation)</li>
-<li>   [Usage](#usage)</li>
-<li>   [License](#license)</li>
-<li>   [Contribution](#contribution)</li>
-<li>   [Test](#test)</li>
-<li>   [Questions](#questions)</li>
+#  Table of Contents
+
+*  [Installation](#installation)
+*  [Usage](#usage)
+*  [License](#license)
+*  [Contribution](#contribution)
+*  [Test](#test)
+*  [Questions](#questions)
 
 #   Installation
 <p>You must use the command line and install node.js and inquirer to run the program.</p>
@@ -24,7 +25,7 @@
 <p>MIT license license</p>
        
 #   Contribution
-<p>Myself (Aaron Anglin)</p>
+<p>Myself (Aaron Anglin) </p>
 
 #    Test
 <p>You will need the following to run the test: To test product you must use the command line.</p>
